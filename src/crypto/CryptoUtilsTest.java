@@ -23,11 +23,10 @@ import java.security.SignatureException;
  *
  */
 public class CryptoUtilsTest {
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		KeyPair cryptoKeys = generateKeyPair();
-		cryptoKeys.getPrivate();
+		PrivateKey key = cryptoKeys.getPrivate();
 		KeyPair signingKeys = generateKeyPair();
-		String key = "Mary has one cat";
 		File inputFile = new File("PlainText.txt");
 		File encryptedFile = new File("PlainText.encrypted");
 		File decryptedFile = new File("PlainText.decrypted");
@@ -41,7 +40,7 @@ public class CryptoUtilsTest {
 		}
 	}
 
-	public KeyPair generateKeyPair() {
+	public static KeyPair generateKeyPair() {
 		KeyPairGenerator generator = null;
 		try {
 			generator = KeyPairGenerator.getInstance("DSA", "SUN");
